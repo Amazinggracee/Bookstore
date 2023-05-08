@@ -28,6 +28,8 @@
 
 - Use React Router.
 - Use React components.
+- Understand the concept of state management.
+- Use store, actions, and reducers in React.
 
 ## 🛠 Built With <a name="built-with"></a>
 - React
@@ -51,6 +53,10 @@
 -[ ] Contains a list to renders individual books
 -[ ] Contains a form to create new books
 -[ ] Contains a navigation to link to the 2 routes you created
+-[ ] Add Redux Toolkit (npm install react-redux @reduxjs/toolkit).
+-[ ] Create a directory that will contain all your Redux logic (/src/redux)
+-[ ] Configure a Redux store (/src/redux/store.js)
+-[ ] Define a slice of state for books
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO AND THE DEPLOY -->
@@ -135,7 +141,15 @@ To get the output of our project make sure you have google Chrome, Mozila or any
 
 ### Key Features <a name="key-features"></a>
 
-
+- Wrap your <App> with the <Provider> component from react-redux
+- Pass your configured store into the <Provider>
+- Create an initialState variable for your booksSlice
+- Display your books, received from the slice, in a reusable component
+- Dispatch actions using useDispatch
+- Add a <Button> component, which includes:
+- An event handler that adds a book to the books array (with attributes id, title and author)
+- Add a <Button> component, which includes:
+- An event handler that removes a book from the books array (by id)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
