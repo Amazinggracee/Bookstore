@@ -1,28 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import BookList from './BookList';
 
-function Book({ book, deleteBook }) {
+function Books() {
+  // object containing books
+  const book = [
+    {
+      item_id: 'item1',
+      title: 'The Great Gatsby',
+      author: 'John Smith',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item2',
+      title: 'Anna Karenina',
+      author: 'Leo Tolstoy',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item3',
+      title: 'The Selfish Gene',
+      author: 'Richard Dawkins',
+      category: 'Nonfiction',
+    },
+  ];
+
   return (
-    <div>
-      <p>
-        {book.title}
-        {' '}
-        by
-        {' '}
-        {book.author}
-      </p>
-      <button type="button" onClick={() => deleteBook(book.id)}>Delete</button>
+    <div className="books-container">
+      <BookList booksprop={book} />
     </div>
   );
 }
 
-Book.propTypes = {
-  book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-  deleteBook: PropTypes.func.isRequired,
-};
-
-export default Book;
+export default Books;

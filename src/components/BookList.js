@@ -1,29 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Book from './Book';
+import { useState } from 'react';
+import BookItem from './BookItems';
+import AddBookForm from './AddBookForm';
+import addBook from './bookUtils';
 
-function BookList(props) {
-  const { books, deleteBook } = props;
+function BookList() {
+  const [bookList, setBookList] = useState([]);
+
+  const handleAddBook = (newBook) => {
+    const newBookList = addBook(newBook, bookList);
+    setBookList(newBookList);
+  };
+
+  const handleRemoveBook = (index) => {
+    const newBookList = [...bookList];
+    newBookList.splice(index, 1);
+    setBookList(newBookList);
+  };
+
   return (
-    <ul>
-      {books.map((book) => (
-        <li key={book.id}>
-          <Book book={book} deleteBook={deleteBook} />
-        </li>
+    <div>
+      <AddBookForm onSubmit={handleAddBook} />
+      {bookList.map((book, index) => (
+        <BookItem
+          key={book.id}
+          title={book.title}
+          author={book.author}
+          category={book.category}
+          onRemove={() => handleRemoveBook(index)}
+        />
       ))}
-    </ul>
+    </div>
   );
 }
-
-BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  deleteBook: PropTypes.func.isRequired,
-};
 
 export default BookList;
