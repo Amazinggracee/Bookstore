@@ -1,97 +1,65 @@
-// import React from 'react';
-
-// const [selectedOption, setSelectedOption] = useState('');
-
-// function AddBook() {
-//   return (
-//     <div className="add-book">
-//       <form className="add-book-content">
-//         <input className="title-inp" type="text" placeholder="Book title" />
-//         <select
-//           value={selectedOption}
-//           onChange={handleChange}
-//           name="Category"
-//           id="lang"
-//         >
-//           <option value="Category" disabled selected>
-//             Category
-//           </option>
-//           <option value="Documentry">Documentry</option>
-//           <option value="Comedy">Comedy</option>
-//           <option value="Fiction">Fiction</option>
-//           <option value="Cartoon">Cartoon</option>
-//         </select>
-//         <input className="btn" type="submit" value="Add book" />
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default AddBook;
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { addBook } from '../redux/books/booksSlices';
+import { addBook } from '../redux/books/books';
+import './AddBook.css';
 
 function AddBook() {
-  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
 
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch();
+
+  const addBookHandler = (e) => {
     e.preventDefault();
-    const newBook = {
-      id: nanoid(),
-      title,
-      author,
-      category: selectedOption,
-    };
-    dispatch(addBook(newBook));
+    dispatch(
+      addBook({
+        item_id: Math.floor(Math.random() * 1000),
+        title,
+        author,
+        category: 'Action',
+      }),
+    );
+
     setTitle('');
     setAuthor('');
-    setSelectedOption('');
+  };
+
+  const titleChangeHandler = (event) => {
+    setTitle(event.target.value);
+  };
+  const authorChangeHandler = (event) => {
+    setAuthor(event.target.value);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-control">
+    <div className="add-book">
+      <form className="add-book-content" onSubmit={addBookHandler}>
         <input
-          placeholder="Title"
+          className="title-inp"
+          name="book"
           type="text"
-          id="title"
+          placeholder="Book title"
+          onChange={titleChangeHandler}
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
         />
-      </div>
-      <div className="form-control">
         <input
-          placeholder="Author"
+          className="author-inp"
+          name="author"
           type="text"
-          id="author"
+          placeholder="Author name"
+          onChange={authorChangeHandler}
           value={author}
-          onChange={(e) => setAuthor(e.target.value)}
         />
-      </div>
-      <div className="form-control">
-        <select
-          placeholder="Categories"
-          id="category"
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
-        >
-          <option value="" disabled>
-            Select a category
+        <select name="Category" id="lang">
+          <option value="Category" disabled selected>
+            Category
           </option>
-          <option value="Fiction">Fiction</option>
-          <option value="Nonfiction">Nonfiction</option>
-          <option value="Sci-fi">Sci-fi</option>
-          <option value="Horror">Horror</option>
+          <option value="History">History</option>
+          <option value="Programming">Programming</option>
         </select>
-      </div>
-      <button type="submit">Add Book</button>
-    </form>
+        <input className="btn" type="submit" value="Add book" />
+      </form>
+    </div>
   );
 }
 

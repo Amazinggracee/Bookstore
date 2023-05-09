@@ -1,24 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import ProtoTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
+import './BookItem.css';
 
 function BookItem(props) {
-  const {
-    title, author, category, onRemove,
-  } = props;
+  const { index, title, author } = props;
+  const dispatch = useDispatch();
+
+  const removeBookHandler = () => {
+    dispatch(removeBook(index));
+  };
+
   return (
     <div className="book-item">
       <div className="left-content">
         <div className="book-description">
           <div className="book-cover">
+            <span className="small-grey-text">Action</span>
             <h3>{title}</h3>
             <p className="author">{author}</p>
-            <p className="cat">{category}</p>
           </div>
           <div className="cta">
             <ul>
               <li>Comments</li>
-              <li>
-                <button type="button" onClick={onRemove}>Remove</button>
+              <li onClick={removeBookHandler} aria-hidden="true">
+                Remove
               </li>
               <li>Edit</li>
             </ul>
@@ -32,7 +39,7 @@ function BookItem(props) {
             </div>
             <div className="progress-bar-percentage">
               <h1>70%</h1>
-              <span className="small-grey-text">Incomplete</span>
+              <span className="small-grey-text">completed</span>
             </div>
           </div>
         </div>
@@ -41,7 +48,7 @@ function BookItem(props) {
       <div className="right-content">
         <div className="current-chapter">
           <span className="small-grey-text">CURRENT CHAPTER</span>
-          <h3>Chapter 3</h3>
+          <h3>Chapter 17</h3>
           <p className="btn btn-grey">Updating progress</p>
           <div />
         </div>
@@ -51,10 +58,9 @@ function BookItem(props) {
 }
 
 BookItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  onRemove: PropTypes.func.isRequired,
+  title: ProtoTypes.string.isRequired,
+  author: ProtoTypes.string.isRequired,
+  index: ProtoTypes.number.isRequired,
 };
 
 export default BookItem;
