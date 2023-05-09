@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function AddBookForm(props) {
+function AddBookForm({ onSubmit }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
@@ -21,7 +21,7 @@ function AddBookForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newBook = { title, author, category };
-    props.onSubmit(newBook);
+    onSubmit(newBook);
     setTitle('');
     setAuthor('');
     setCategory('');

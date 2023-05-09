@@ -1,8 +1,10 @@
 import React from 'react';
-import ProtoTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function BookItem(props) {
-  const { title, author, category } = props;
+  const {
+    title, author, category, onRemove,
+  } = props;
   return (
     <div className="book-item">
       <div className="left-content">
@@ -15,7 +17,9 @@ function BookItem(props) {
           <div className="cta">
             <ul>
               <li>Comments</li>
-              <li>Remove</li>
+              <li>
+                <button type="button" onClick={onRemove}>Remove</button>
+              </li>
               <li>Edit</li>
             </ul>
           </div>
@@ -47,9 +51,10 @@ function BookItem(props) {
 }
 
 BookItem.propTypes = {
-  title: ProtoTypes.string.isRequired,
-  author: ProtoTypes.string.isRequired,
-  category: ProtoTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 export default BookItem;
