@@ -7,6 +7,7 @@ export default function Form() {
   const [newId, setNewId] = useState('{bookList.length}');
   const [newTitle, setNewTitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
+  const [newCategory, setNewCategory] = useState('');
 
   const clickAddBook = (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ export default function Form() {
         id: newId,
         title: newTitle,
         author: newAuthor,
+        category: newCategory,
       }),
     );
   };
@@ -33,6 +35,12 @@ export default function Form() {
           placeholder="author"
           required
           onChange={(e) => setNewAuthor(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="category"
+          required
+          onChange={(e) => setNewCategory(e.target.value)}
         />
         <button
           type="submit"
