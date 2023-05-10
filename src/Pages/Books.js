@@ -8,6 +8,7 @@ function Books() {
   return (
     <>
       <div>
+        <h2>List of Books</h2>
         {bookList.map((book) => (
           <Book
             key={book.item_id}

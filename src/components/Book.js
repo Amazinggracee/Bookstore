@@ -10,7 +10,6 @@ export default function Book({
   return (
     <>
       <div className="booklist">
-        <h2>List of Books</h2>
         <ul>
           <li className="bookitems">
             <p>{title}</p>
