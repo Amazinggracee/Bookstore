@@ -1,28 +1,31 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const [newId, setNewId] = useState('{bookList.length}');
   const [newTitle, setNewTitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
   const [newCategory, setNewCategory] = useState('');
+  const formRef = useRef(null);
 
-  const clickAddBook = (e) => {
-    e.preventDefault();
+  const clickAddBook = () => {
+    // e.preventDefault();
     dispatch(
       addBook({
-        id: newId,
+        item_id: uuid(),
         title: newTitle,
         author: newAuthor,
         category: newCategory,
       }),
     );
+    formRef.current.reset();
   };
+
   return (
     <>
-      <form>
+      <form ref={formRef}>
         <h3>Adding a Book</h3>
         <input
           type="text"
@@ -44,8 +47,7 @@ export default function Form() {
         />
         <button
           type="submit"
-          onChange={(e) => setNewId(e.target.value)}
-          onClick={clickAddBook}
+          onClick={() => clickAddBook()}
         >
           Add Book
         </button>
