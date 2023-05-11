@@ -1,11 +1,23 @@
+// import { configureStore } from '@reduxjs/toolkit';
+// import booksReducer from './books/booksSlice';
+// import categoriesReducer from './categories/categoriesSlice';
+
+// const store = configureStore({
+//   reducer: {
+//     books: booksReducer,
+//     categories: categoriesReducer,
+//   },
+// });
+
+// export default store;
 import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from './books/booksSlice';
-import categoriesReducer from './categories/categoriesSlice';
+import booksSlice from './features/books/booksSlice';
+import categoriesSlice from './features/categories/categoriesSlice';
 
 const store = configureStore({
   reducer: {
-    books: booksReducer,
-    categories: categoriesReducer,
+    books: booksSlice,
+    categories: categoriesSlice,
   },
 });
 
