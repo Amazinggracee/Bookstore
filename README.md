@@ -31,6 +31,14 @@
 - Understand the concept of state management.
 - Use store, actions, and reducers in React.
 - Connect React and Redux.
+- Understand the concept of state management.
+- Use store, actions and reducers in React.
+- Connect React and Redux.
+- Connect an existing API via Redux and use the data to display something in a UI.
+- Understand the concept of state management.
+- Use store, actions and reducers in React.
+- Connect React and Redux.
+- Apply React best practices and language style guides in code.
 
 ## 🛠 Built With <a name="built-with"></a>
 - React
@@ -67,6 +75,14 @@
 - [ ] An event handler that adds a book to the books array (with attributes id, title and author)
 - [ ] Add a <Button> component, which includes:
 - [ ] An event handler that removes a book from the books array (by id)
+- [ ] Make use of the Bookstore API as your backend.
+- [ ] Use axios with createAsyncThunk to make your HTTP requests to the backend
+- [ ] Fetch your books from the Bookstore API after the component has rendered
+- [ ] Refactor your add book and remove book features to persist your changes in the server
+- [ ] Your application should behave the same way after the refactoring
+- [ ] dd any missing JSX elements to your project (without adding extra functionality)
+- [ ] Your final design should match Zeplin's design (this includes all elements + the same styling)
+- [ ] You may use the CSS rules detailed in Zeplin to style the website.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -153,11 +169,7 @@ To get the output of our project make sure you have google Chrome, Mozila or any
 
 ### Key Features <a name="key-features"></a>
 
-- Make use of the Bookstore API as your backend.
-- Use axios with createAsyncThunk to make your HTTP requests to the backend
-- Fetch your books from the Bookstore API after the component has rendered
-- Refactor your add book and remove book features to persist your changes in the server
-- Your application should behave the same way after the refactoring
+
 
 
 

@@ -14,13 +14,17 @@ const Book = ({
         <h3>{title}</h3>
         <p>{author}</p>
         <ul className="comments">
-          <li>Comments</li>
+          <li>
+            <button type="button">Comments</button>
+          </li>
           <li>
             <button type="button" onClick={() => dispatch(deleteBooks(id))}>
               Remove
             </button>
           </li>
-          <li>Edit</li>
+          <li>
+            <button type="button">Edit</button>
+          </li>
         </ul>
       </div>
 
