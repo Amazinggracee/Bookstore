@@ -1,15 +1,3 @@
-// function Categories() {
-//   return (
-//     <div>
-//       <button type="button" className="button key">
-//         Check status
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default Categories;
-
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../../redux/features/categories/categoriesSlice';
