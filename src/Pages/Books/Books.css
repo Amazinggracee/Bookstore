@@ -20,3 +20,18 @@
   height: 0;
   max-width: 85rem;
 }
+
+@media screen and (max-width: 767px) {
+.booksContainer {
+padding-bottom: 6.563rem;
+}
+
+.booksSection {
+margin: 0 1.5rem;
+min-height: 40rem;
+}
+
+.borderLine {
+margin: 0 1.5rem;
+}
+}
