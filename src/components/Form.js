@@ -1,57 +1,77 @@
-import { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-import { addBook } from '../redux/books/booksSlice';
+import uniqid from 'uniqid';
+import { postBooks } from '../redux/features/books/booksSlice';
 
-export default function Form() {
+const Form = () => {
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
   const [newCategory, setNewCategory] = useState('');
-  const formRef = useRef(null);
 
-  const clickAddBook = () => {
-    // e.preventDefault();
+  const handleAddBook = (e) => {
+    e.preventDefault();
+    if (!newTitle || !newAuthor || !newCategory) {
+      return;
+    }
     dispatch(
-      addBook({
-        item_id: uuid(),
+      postBooks({
+        item_id: uniqid(),
         title: newTitle,
         author: newAuthor,
         category: newCategory,
       }),
     );
-    formRef.current.reset();
+    // Reset the form after submission
+    setNewTitle('');
+    setNewAuthor('');
+    setNewCategory('');
   };
 
   return (
-    <>
-      <form ref={formRef}>
-        <h3>Adding a Book</h3>
+    <section className="formContainer">
+      <h2 className="header">Add New Book</h2>
+      <form className="bookForm">
         <input
+          className="bookTitle"
           type="text"
-          placeholder="title"
+          placeholder="Book title"
           required
+          value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
         />
         <input
+          className="author"
           type="text"
-          placeholder="author"
+          placeholder="Author"
           required
+          value={newAuthor}
           onChange={(e) => setNewAuthor(e.target.value)}
         />
-        <input
-          type="text"
+        <select
+          className="Category"
+          id="category"
           placeholder="category"
           required
+          value={newCategory}
           onChange={(e) => setNewCategory(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={() => clickAddBook()}
         >
+          <option value="" disabled>
+            Category
+          </option>
+          <option value="History">History</option>
+          <option value="Programming">Programming</option>
+          <option value="Business">Business</option>
+          <option value="Self Help">Self Help</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Science">Science</option>
+        </select>
+        <button className="addBook" type="submit" onClick={handleAddBook}>
           Add Book
         </button>
       </form>
-    </>
+    </section>
   );
-}
+};
+
+export default Form;
