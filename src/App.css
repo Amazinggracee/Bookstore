@@ -56,13 +56,12 @@
 
 .navContainer {
   max-width: 87.5rem;
-  border-bottom: 1px solid var(--white1);
   height: 5.938rem;
   background-color: var(--white0);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: -2rem;
+  margin-bottom: -4rem;
 }
 
 .links {
@@ -349,7 +348,7 @@
   text-transform: uppercase;
   width: 12rem;
   margin: 1rem;
-  margin-left: 0;
+  margin-left: 0.03rem;
 }
 
 .header:hover {
