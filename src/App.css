@@ -144,7 +144,7 @@
 }
 
 .details > h4 {
-  width: 3.063rem;
+  width: auto;
   height: 1.125rem;
   margin: 0 2.438rem 0 0;
   opacity: 0.5;
@@ -268,6 +268,11 @@
 .chapter {
   display: flex;
   flex-direction: column;
+}
+
+.chapter:hover {
+  border: 0.01rem solid var(--blue0);
+  background: transparent;
 }
 
 .currentChapter {
