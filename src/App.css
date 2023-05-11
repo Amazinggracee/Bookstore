@@ -108,10 +108,8 @@
 }
 
 .userCircle {
-  border: 1px solid var(--white1);
   margin-right: 7rem;
   padding: 10px;
-  border-radius: 25px;
 }
 
 .user {
@@ -450,8 +448,7 @@
 
   .userCircle {
     margin-right: 1rem;
-    padding: 5px;
-    border-radius: 50%;
+    border: none;
   }
 
   .user {
