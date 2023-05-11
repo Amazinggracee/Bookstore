@@ -426,14 +426,14 @@
   }
 
   .logo {
- width: 15rem;
+    width: 15rem;
     height: 1.5rem;
     font-size: 1.5rem;
     padding-left: 0;
   }
 
   .navContainer {
-  height: 4.938rem;
+    height: 4.938rem;
     margin: auto;
     gap: 5%;
     display: flex;
@@ -458,81 +458,81 @@
     font-size: 18px;
   }
 
-   .bookContainer {
+  .bookContainer {
     flex-direction: column;
     height: auto;
     padding: 2rem 1.688rem 1.625rem 1.688rem;
     margin: 0.5rem 0;
   }
-  
+
   .details {
     margin-top: 1rem;
     align-items: center;
     text-align: center;
   }
-  
+
   .details > h4 {
     margin-right: 0;
   }
-  
+
   .details > h3 {
     margin-right: 0;
   }
-  
+
   .comments {
     flex-direction: column;
     margin-top: 1rem;
   }
-  
+
   .comments > li {
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
-  
+
   .progress {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .spinner {
     justify-content: center;
   }
-  
+
   .spinnerIcon {
     width: 3rem;
     height: 3rem;
   }
-  
+
   .spinnerText {
     margin-left: 0;
     margin-top: 0.5rem;
   }
-  
+
   .percentage {
     font-size: 1.5rem;
   }
-  
+
   .completed {
     margin-top: 0.5rem;
   }
-  
+
   .borderLine {
     display: none;
   }
-  
+
   .chapter {
     margin-top: 1rem;
   }
-  
+
   .chapterNo {
     margin-top: 0.5rem;
   }
-  
+
   .updateButton {
     margin-top: 1rem;
   }
 
-    .formContainer {
+  .formContainer {
     margin: 0 1.5rem;
     margin-top: 1.5rem;
   }
@@ -558,5 +558,3 @@
     margin: 1.188rem 0 0 0;
   }
 }
-
-
